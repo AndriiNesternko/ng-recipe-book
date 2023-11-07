@@ -1,0 +1,12 @@
+<div>
+  <button class="btn" (click)="onNewRecipe()">New Recipe</button>
+  <hr class="my-4" />
+
+  <div class="flex flex-col gap-2">
+    <app-recipe-item
+      *ngFor="let recipe of recipes; let i = index"
+      [recipe]="recipe"
+      [index]="i"
+    ></app-recipe-item>
+  </div>
+</div>

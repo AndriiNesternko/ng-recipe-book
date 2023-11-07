@@ -1,0 +1,110 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <button class="btn mr-2" type="submit" [disabled]="recipeForm.invalid">
+      Save
+    </button>
+    <button class="btn btn-red" type="button" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-1 mt-2">
+    <label
+      for="name"
+      class="text-lg font-semibold text-indigo-900 ml-1 dark:text-indigo-100"
+      >Name</label
+    >
+    <input
+      type="text"
+      id="name"
+      placeholder="Icecream"
+      class="input"
+      formControlName="name"
+    />
+  </div>
+
+  <div class="flex flex-col gap-1 mt-2">
+    <label
+      for="image"
+      class="text-lg font-semibold text-indigo-900 ml-1 dark:text-indigo-100"
+      >Image URL</label
+    >
+    <input
+      type="text"
+      id="image"
+      placeholder="https://Icecream.jpg"
+      class="input"
+      formControlName="imagePath"
+      #imagePath
+    />
+  </div>
+
+  <img [src]="imagePath.value" class="w-96 mt-3 block mx-auto rounded-lg" />
+
+  <div class="flex flex-col gap-1 mt-2">
+    <label
+      for="description"
+      class="text-lg font-semibold text-indigo-900 ml-1 dark:text-indigo-100"
+      >Description</label
+    >
+    <textarea
+      class="input max-h-52"
+      rows="4"
+      type="text"
+      id="description"
+      placeholder="So sweat and tasty"
+      formControlName="desc"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-col mt-5 gap-3" formArrayName="ingredients">
+    <div
+      class="flex gap-4"
+      *ngFor="let ingredientCtrl of controls; let i = index"
+      [formGroupName]="i"
+    >
+      <input
+        type="text"
+        placeholder="Sugar"
+        class="input w-8/12"
+        formControlName="name"
+      />
+
+      <input
+        type="number"
+        placeholder="42"
+        class="input w-3/12"
+        formControlName="amount"
+      />
+
+      <button
+        class="btn btn-red px-2 py-1 w-8 shrink"
+        type="button"
+        (click)="onDeleteIngredient(i)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="{1.5}"
+          stroke="currentColor"
+          className="w-4 h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <button
+      class="btn text-sm w-6/12 sm:w-3/12 mb-5"
+      type="button"
+      (click)="onAddIngredient()"
+    >
+      Add Ingridient
+    </button>
+  </div>
+</form>

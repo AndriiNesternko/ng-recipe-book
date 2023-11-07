@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  body {
+    @apply bg-stone-50 dark:bg-stone-800;
+  }
+
+  .header-link {
+    @apply text-sm sm:text-base inline-block text-indigo-700 border-b-2 border-indigo-900 border-opacity-0 hover:border-opacity-100 hover:text-indigo-900 transition duration-300 delay-75 dark:text-indigo-50 dark:border-indigo-200 dark:border-opacity-0 dark:hover:border-opacity-100 dark:hover:text-indigo-200;
+  }
+
+  .active-header-link {
+    @apply border-opacity-100 text-indigo-900 dark:border-opacity-100 dark:text-indigo-200;
+  }
+
+  .btn {
+    @apply bg-indigo-700 px-5 py-2 text-indigo-50 rounded-lg hover:bg-indigo-700/90 hover:scale-105 transition duration-300 delay-75 disabled:bg-gray-400 disabled:text-gray-300 disabled:scale-100;
+  }
+  .btn-red {
+    @apply bg-red-700 hover:bg-red-700/90;
+  }
+
+  .input {
+    @apply block rounded-xl px-3 py-1 shadow-sm bg-slate-100 text-indigo-800 border-0 ring-1 ring-inset ring-indigo-300 placeholder:text-indigo-200 focus:ring-2 focus:ring-inset focus:ring-indigo-400 outline-none;
+  }
+}
