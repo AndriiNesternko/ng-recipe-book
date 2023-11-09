@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "ng-recipe-book-13b93"
-  }
+    "default": "ng-recipe-book-524ce",
+    "y": "ng-recipe-book-524ce"
+  },
+  "targets": {},
+  "etags": {}
 }

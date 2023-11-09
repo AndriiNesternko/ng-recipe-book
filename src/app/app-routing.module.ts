@@ -9,7 +9,12 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { RecipeResolverService } from './recipes/recipe-resolver.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/recipes',
+    pathMatch: 'full',
+    resolve: [RecipeResolverService],
+  },
   {
     path: 'recipes',
     component: RecipesComponent,

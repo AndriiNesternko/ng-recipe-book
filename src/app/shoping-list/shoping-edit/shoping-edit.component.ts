@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
     `
       input.ng-invalid.ng-touched,
       textarea.ng-invalid.ng-touched {
-        @apply ring-red-600 bg-red-400/10;
+        @apply ring-red-600 bg-red-100;
       }
     `,
   ],
